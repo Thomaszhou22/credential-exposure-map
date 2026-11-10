@@ -9,29 +9,29 @@ version: 1.1.0
 > See every credential your agent can touch. Score the blast radius. Shrink the attack surface.
 
 
-## Onboarding（首次使用）
+## Onboarding (First Use)
 
-当用户第一次触发本 skill 且 `memory/credential_exposure_map_state.json` 不存在时，执行一次性引导：
+When the user first triggers this skill and `memory/credential_exposure_map_state.json` doesn't exist, run a one-time setup:
 
-1. **介绍能力**（一句话）：_"我可以扫描你的 agent 能访问的所有凭证（env/config/memory/git history），生成风险评分报告。"_
+1. **Introduce capability** (one sentence): _"I can scan every credential your agent can access (env/config/memory/git history) and generate a risk-scored report."_
 
-2. **快速配置：**
+2. **Quick configuration:**
 
-1. **扫描范围**（默认：全部）
-   - 全部（env + config + memory + skills + MCP + git history）
-   - 仅环境变量和配置文件
-   - 仅 git history
-2. **风险阈值**（默认：中）
-   - 低：列出所有暴露（包括安全的）
-   - 中：中风险和高风险（推荐）
-   - 高：仅高风险（可能遗漏）
-3. **是否保存上次扫描结果**（默认：是，用于下次对比新增暴露）
+1. **Scan scope**(Default: All)
+   - All(env + config + memory + skills + MCP + git history)
+   - Environment variables and config files only
+   - Git history only
+2. **Risk threshold**(Default: Medium)
+   - Low: list all exposures (including safe ones)
+- : medium and high risk(recommended)
+   - High: critical risk only (may miss some)
+3. **Save last scan results**(Default: Yes, for comparison with next scan)
 
-3. **写入初始状态文件** `memory/credential_exposure_map_state.json`（JSON 格式，含 `onboarded: true` 和时间戳）
+3. **Write initial state file** `memory/credential_exposure_map_state.json`(JSON format, with `onboarded: true` and timestamp)
 
-4. **确认完成**：_"设置完成！以后直接用就行。随时可以说'reset settings'重新配置。"_
+4. **Confirm completion**: _"Setup done! Just use it from now on. Say 'reset settings' anytime to reconfigure."
 
-**Onboarding 只执行一次**，后续每次激活直接读取状态文件。用户说 "reset settings" 时删除状态文件重新引导。
+**Onboarding runs exactly once.** Subsequent activations read the state file directly. When the user says "reset settings", delete the state file and re-run setup.
 
 ---
 

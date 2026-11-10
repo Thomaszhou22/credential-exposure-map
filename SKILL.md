@@ -1,7 +1,7 @@
 ---
 name: credential-exposure-map
 description: Map all credentials your OpenClaw agent can access. Scans env vars, config, memory, skills, MCP servers, git history. Generates exposure report with risk scoring. Activate when user says "credential audit", "exposure map", "security audit", or "what can my agent access".
-version: 1.1.0
+version: 1.1.1
 ---
 
 # Credential Exposure Map
